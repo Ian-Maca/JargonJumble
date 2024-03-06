@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Custom';
+    src: url('./fonts/NewRocker-Regular.ttf');
+}
+
+body {
+    font-family: 'Custom';
+    background-position: center center;
+    background-image: url("./img/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+#defText {
+    font-size: x-large;
+    padding: 10%;
+    padding-top: 2%;
+    color:rgb(28, 125, 91);
+}
+
+#submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#result {
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 0;
+    color:brown;
+}
