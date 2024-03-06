@@ -6,13 +6,14 @@ import axios from 'axios';
 const app = express();      //Create our app
 const PORT = 5500;          //Set port manually
 
-let randDef = "";           //String for holding random definition of a random word in words.txt
+let randDef = "";
 
 // serve static files from 'public' dir to user
 app.use(express.static('public'));
 
 //listens for http GET named "/get-random-word" (comes from index.html)
 app.get('/get-random-word', async (req, res) => { // async required for await
+
     const filePath = "./data/words.txt";
     readFile(filePath, { encoding: 'utf8' }, async (err, data) => { // async for await usage
         if (err) {  //Handle errors
@@ -42,7 +43,10 @@ app.get('/get-random-word', async (req, res) => { // async required for await
             const response = await axios.request(options); // USING await FROM async function
 
             const randIndex = Math.floor(Math.random() * response.data.list.length);  //Get random definition
-            randDef = response.data.list[randIndex].definition;
+
+            let randDef = response.data.list[randIndex].definition;
+
+            randDef = randDef.replace(/\[|\]|\\r|\\n\\/g, '');
 
         } catch (error) {
             console.error(error);

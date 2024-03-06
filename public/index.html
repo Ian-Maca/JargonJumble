@@ -23,7 +23,7 @@
         fetch('/get-random-word')
             .then(response => response.json())
             .then(data => { document.getElementById('result').textContent = data.randWord;
-                            document.getElementById('defText').innerHTML = JSON.stringify(data.randDef);
+                            document.getElementById('defText').innerText = JSON.stringify(data.randDef);
         })
             .catch(error => console.error('Error fetching random word:', error));
     });
